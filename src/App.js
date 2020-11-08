@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import list from "./list";
+import List from "./List";
 import "./App.css";
 
 class App extends Component {
@@ -18,13 +18,15 @@ class App extends Component {
           <h1>Trelloyes</h1>
         </header>
         <div className="App-list">
-          {store.lists.map((list) => (
-            <list
-              key={list.id}
-              header={list.header}
-              cards={list.cardIds.map((id) => store.allCards[id])}
-            />
-          ))}
+          {store.lists.map((list) => {
+            return (
+              <List
+                key={list.id}
+                header={list.header}
+                cards={list.cardIds.map((id) => store.allCards[id])}
+              />
+            );
+          })}
         </div>
       </main>
     );
